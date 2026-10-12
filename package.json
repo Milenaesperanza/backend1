@@ -1,0 +1,15 @@
+{
+  "name": "manada-servicios",
+  "version": "1.0.0",
+  "description": "Gestión de servicios de Manada PetShop",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}

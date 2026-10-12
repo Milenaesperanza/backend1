@@ -1,0 +1,821 @@
+[
+  {
+    "id": "service-1",
+    "name": "Baño perro pequeño",
+    "description": "Baño con shampoo canino, secado y cepillado. Hasta 10 kg.",
+    "duration": 45,
+    "price": 25000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-2",
+    "name": "Baño perro mediano",
+    "description": "Higiene completa para perros de 10 a 25 kg con secado y cepillado.",
+    "duration": 60,
+    "price": 35000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-3",
+    "name": "Baño perro grande",
+    "description": "Lavado secado y cepillado de perros de 25 a 40 kg.",
+    "duration": 90,
+    "price": 45000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-4",
+    "name": "Baño perro gigante",
+    "description": "Baño completo para más de 40 kg con mayor tiempo de secado.",
+    "duration": 120,
+    "price": 60000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-5",
+    "name": "Baño y corte pequeño",
+    "description": "Baño, secado, corte según pelaje y terminaciones higiénicas.",
+    "duration": 90,
+    "price": 38000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-6",
+    "name": "Baño y corte mediano",
+    "description": "Higiene completa y corte de peluquería para perro mediano.",
+    "duration": 120,
+    "price": 48000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-7",
+    "name": "Baño y corte grande",
+    "description": "Baño y arreglo del manto con corte cuando corresponde.",
+    "duration": 150,
+    "price": 65000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-8",
+    "name": "Baño y corte gigante",
+    "description": "Servicio integral para razas grandes cuyo pelaje admite corte.",
+    "duration": 180,
+    "price": 80000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-9",
+    "name": "Deslanado canino",
+    "description": "Retiro de subpelo muerto mediante herramientas específicas sin rasurado.",
+    "duration": 45,
+    "price": 15000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-10",
+    "name": "Corte higiénico canino",
+    "description": "Recorte localizado en zona perianal, abdominal y almohadillas.",
+    "duration": 30,
+    "price": 12000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-11",
+    "name": "Corte de uñas canino",
+    "description": "Recorte de uñas según longitud y anatomía.",
+    "duration": 15,
+    "price": 5000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-12",
+    "name": "Higiene de oídos externa canina",
+    "description": "Limpieza superficial no médica con productos adecuados.",
+    "duration": 15,
+    "price": 6000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-13",
+    "name": "Cepillado y desenredado canino",
+    "description": "Retiro de nudos leves y mantenimiento del manto.",
+    "duration": 30,
+    "price": 12000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-14",
+    "name": "Baño dermatológico indicado",
+    "description": "Baño con producto prescripto por profesional veterinario.",
+    "duration": 60,
+    "price": 35000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-15",
+    "name": "Spa canino",
+    "description": "Baño, acondicionamiento, cepillado y cuidados cosméticos no invasivos.",
+    "duration": 90,
+    "price": 45000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-16",
+    "name": "Baño de cachorro",
+    "description": "Primera experiencia breve de higiene positiva para cachorro con plan sanitario apto.",
+    "duration": 45,
+    "price": 27000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-17",
+    "name": "Cepillado felino",
+    "description": "Retiro de pelo muerto especialmente en gatos de pelo largo.",
+    "duration": 30,
+    "price": 20000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-18",
+    "name": "Deslanado felino",
+    "description": "Retiro controlado de subpelo con técnicas adaptadas al gato.",
+    "duration": 45,
+    "price": 35000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-19",
+    "name": "Corte higiénico felino",
+    "description": "Recorte localizado necesario para el mantenimiento del manto.",
+    "duration": 45,
+    "price": 35000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-20",
+    "name": "Corte de uñas felino",
+    "description": "Recorte de puntas de uñas con manejo respetuoso.",
+    "duration": 15,
+    "price": 8000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-21",
+    "name": "Baño felino asistido",
+    "description": "Higiene cuando existe necesidad concreta y el gato tolera el procedimiento.",
+    "duration": 60,
+    "price": 45000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-22",
+    "name": "Grooming sanitario felino",
+    "description": "Tratamiento de nudos superficiales y mantenimiento del pelaje.",
+    "duration": 60,
+    "price": 60000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-23",
+    "name": "Peluquería felina integral",
+    "description": "Evaluación del manto, higiene indicada, desenredado y cuidados.",
+    "duration": 90,
+    "price": 65000,
+    "category": "peluqueria",
+    "available": true
+  },
+  {
+    "id": "service-24",
+    "name": "Consulta veterinaria general",
+    "description": "Anamnesis, examen físico, evaluación y recomendaciones.",
+    "duration": 30,
+    "price": 30000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-25",
+    "name": "Primera consulta de cachorro",
+    "description": "Evaluación de desarrollo, alimentación, prevención y plan sanitario.",
+    "duration": 40,
+    "price": 35000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-26",
+    "name": "Primera consulta de gatito",
+    "description": "Evaluación clínica inicial, cuidados, vacunas y prevención.",
+    "duration": 40,
+    "price": 35000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-27",
+    "name": "Control veterinario",
+    "description": "Seguimiento de tratamiento o patología previamente diagnosticada.",
+    "duration": 20,
+    "price": 25000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-28",
+    "name": "Consulta geriátrica",
+    "description": "Evaluación de movilidad, peso, conducta y salud del animal mayor.",
+    "duration": 45,
+    "price": 45000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-29",
+    "name": "Consulta dermatológica",
+    "description": "Evaluación especializada de lesiones, piel y pelaje.",
+    "duration": 45,
+    "price": 65000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-30",
+    "name": "Consulta nutricional veterinaria",
+    "description": "Evaluación corporal y pautas alimentarias clínicas.",
+    "duration": 45,
+    "price": 45000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-31",
+    "name": "Consulta veterinaria a domicilio",
+    "description": "Examen clínico en hogar con desplazamiento incluido dentro del radio base.",
+    "duration": 60,
+    "price": 80000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-32",
+    "name": "Teleconsulta veterinaria",
+    "description": "Orientación y seguimiento remoto de casos apropiados.",
+    "duration": 30,
+    "price": 35000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-33",
+    "name": "Certificado sanitario",
+    "description": "Evaluación y emisión de certificado sujeto a requisitos aplicables.",
+    "duration": 30,
+    "price": 45000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-34",
+    "name": "Vacuna antirrábica",
+    "description": "Evaluación previa y vacuna contra rabia cuando corresponde.",
+    "duration": 20,
+    "price": 20000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-35",
+    "name": "Vacuna séxtuple canina",
+    "description": "Aplicación según esquema indicado por veterinario.",
+    "duration": 20,
+    "price": 38000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-36",
+    "name": "Vacuna tos de las perreras",
+    "description": "Vacunación respiratoria según evaluación de riesgo.",
+    "duration": 20,
+    "price": 40000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-37",
+    "name": "Vacuna triple felina",
+    "description": "Vacuna contra enfermedades virales felinas incluidas en producto.",
+    "duration": 20,
+    "price": 32000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-38",
+    "name": "Vacuna leucemia felina",
+    "description": "Vacuna según riesgo y estado sanitario evaluado.",
+    "duration": 20,
+    "price": 35000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-39",
+    "name": "Desparasitación interna",
+    "description": "Evaluación de riesgo, dosis e indicación de antiparasitario.",
+    "duration": 20,
+    "price": 20000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-40",
+    "name": "Control antiparasitario externo",
+    "description": "Evaluación y recomendación o aplicación de control antipulgas.",
+    "duration": 20,
+    "price": 15000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-41",
+    "name": "Control anual preventivo",
+    "description": "Chequeo general y revisión de calendario sanitario.",
+    "duration": 40,
+    "price": 40000,
+    "category": "veterinaria",
+    "available": true
+  },
+  {
+    "id": "service-42",
+    "name": "Hemograma completo",
+    "description": "Extracción sanguínea y análisis hematológico.",
+    "duration": 30,
+    "price": 35000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-43",
+    "name": "Perfil bioquímico",
+    "description": "Análisis de marcadores metabólicos y de función orgánica.",
+    "duration": 30,
+    "price": 45000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-44",
+    "name": "Análisis de orina",
+    "description": "Evaluación fisicoquímica y microscópica.",
+    "duration": 20,
+    "price": 25000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-45",
+    "name": "Análisis coproparasitológico",
+    "description": "Estudio de materia fecal para detectar parásitos.",
+    "duration": 15,
+    "price": 25000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-46",
+    "name": "Ecografía abdominal",
+    "description": "Evaluación ecográfica de órganos abdominales.",
+    "duration": 30,
+    "price": 45000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-47",
+    "name": "Ecografía gestacional",
+    "description": "Evaluación ecográfica de gestación.",
+    "duration": 30,
+    "price": 45000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-48",
+    "name": "Radiografía simple",
+    "description": "Estudio radiológico de una región anatómica.",
+    "duration": 30,
+    "price": 40000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-49",
+    "name": "Electrocardiograma",
+    "description": "Registro de actividad eléctrica cardíaca.",
+    "duration": 30,
+    "price": 35000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-50",
+    "name": "Ecocardiograma",
+    "description": "Evaluación ecográfica de función y estructura cardíaca.",
+    "duration": 45,
+    "price": 55000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-51",
+    "name": "Test rápido infeccioso",
+    "description": "Prueba diagnóstica según especie y sospecha clínica.",
+    "duration": 30,
+    "price": 40000,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "service-52",
+    "name": "Evaluación de rehabilitación",
+    "description": "Valoración de movilidad, dolor y objetivos terapéuticos.",
+    "duration": 60,
+    "price": 50000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-53",
+    "name": "Fisioterapia veterinaria",
+    "description": "Ejercicios terapéuticos y técnicas de recuperación.",
+    "duration": 45,
+    "price": 35000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-54",
+    "name": "Rehabilitación posoperatoria",
+    "description": "Plan de recuperación funcional posterior a cirugía.",
+    "duration": 45,
+    "price": 40000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-55",
+    "name": "Hidroterapia canina",
+    "description": "Ejercicios acuáticos terapéuticos supervisados.",
+    "duration": 45,
+    "price": 50000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-56",
+    "name": "Acupuntura veterinaria",
+    "description": "Sesión complementaria por profesional capacitado.",
+    "duration": 45,
+    "price": 65000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-57",
+    "name": "Control de peso",
+    "description": "Seguimiento de peso y condición corporal.",
+    "duration": 30,
+    "price": 25000,
+    "category": "bienestar",
+    "available": true
+  },
+  {
+    "id": "service-58",
+    "name": "Guardería canina media jornada",
+    "description": "Cuidado supervisado con actividad y descanso.",
+    "duration": 240,
+    "price": 18000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-59",
+    "name": "Guardería canina día completo",
+    "description": "Supervisión, recreación y alimentación pautada.",
+    "duration": 480,
+    "price": 30000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-60",
+    "name": "Guardería felina individual",
+    "description": "Cuidado temporal en ambiente separado y adaptado.",
+    "duration": 480,
+    "price": 28000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-61",
+    "name": "Hospedaje canino",
+    "description": "Alojamiento nocturno, alimento y supervisión programada.",
+    "duration": 1440,
+    "price": 35000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-62",
+    "name": "Hospedaje felino",
+    "description": "Alojamiento en instalación felina con refugios y enriquecimiento.",
+    "duration": 1440,
+    "price": 32000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-63",
+    "name": "Cuidado especial de mascota senior",
+    "description": "Atención individualizada y seguimiento adicional no médico.",
+    "duration": 480,
+    "price": 40000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-64",
+    "name": "Adaptación a guardería canina",
+    "description": "Evaluación inicial de comportamiento y compatibilidad.",
+    "duration": 60,
+    "price": 15000,
+    "category": "guarderia",
+    "available": true
+  },
+  {
+    "id": "service-65",
+    "name": "Paseo grupal canino",
+    "description": "Paseo supervisado con perros compatibles.",
+    "duration": 60,
+    "price": 7000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-66",
+    "name": "Paseo individual canino",
+    "description": "Paseo personalizado según necesidad.",
+    "duration": 60,
+    "price": 12000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-67",
+    "name": "Paseo de cachorro",
+    "description": "Salida breve según etapa sanitaria y edad.",
+    "duration": 30,
+    "price": 8000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-68",
+    "name": "Paseo de perro senior",
+    "description": "Paseo tranquilo con pausas.",
+    "duration": 30,
+    "price": 8000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-69",
+    "name": "Plan 12 paseos mensuales",
+    "description": "Doce paseos grupales programados durante el mes.",
+    "duration": 720,
+    "price": 90000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-70",
+    "name": "Plan 20 paseos mensuales",
+    "description": "Veinte paseos grupales programados durante el mes.",
+    "duration": 1200,
+    "price": 130000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-71",
+    "name": "Visita a domicilio perro",
+    "description": "Agua, alimento, higiene básica y compañía.",
+    "duration": 30,
+    "price": 15000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-72",
+    "name": "Visita a domicilio gato",
+    "description": "Agua, alimento, limpieza de arenero y supervisión.",
+    "duration": 30,
+    "price": 15000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-73",
+    "name": "Cuidado domiciliario prolongado",
+    "description": "Acompañamiento de la mascota durante ausencia del tutor.",
+    "duration": 240,
+    "price": 45000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-74",
+    "name": "Traslado de mascotas",
+    "description": "Transporte coordinado a peluquería o veterinaria dentro de radio base.",
+    "duration": 60,
+    "price": 20000,
+    "category": "paseos",
+    "available": true
+  },
+  {
+    "id": "service-75",
+    "name": "Evaluación de conducta canina",
+    "description": "Entrevista y evaluación para programa de trabajo.",
+    "duration": 60,
+    "price": 45000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-76",
+    "name": "Educación básica canina",
+    "description": "Atención, llamada, autocontrol y convivencia.",
+    "duration": 60,
+    "price": 35000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-77",
+    "name": "Educación de cachorros",
+    "description": "Hábitos y socialización apropiada.",
+    "duration": 60,
+    "price": 30000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-78",
+    "name": "Clase grupal canina",
+    "description": "Educación supervisada con perros compatibles.",
+    "duration": 60,
+    "price": 22000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-79",
+    "name": "Entrenamiento de paseo",
+    "description": "Trabajo de correa y reducción de tirones.",
+    "duration": 60,
+    "price": 35000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-80",
+    "name": "Ansiedad por separación canina",
+    "description": "Evaluación y pautas con seguimiento.",
+    "duration": 60,
+    "price": 50000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-81",
+    "name": "Modificación de conducta canina",
+    "description": "Programa personalizado sobre conductas problemáticas.",
+    "duration": 60,
+    "price": 55000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-82",
+    "name": "Evaluación conductual felina",
+    "description": "Consulta por estrés, arenero, agresividad o convivencia.",
+    "duration": 60,
+    "price": 55000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-83",
+    "name": "Convivencia entre gatos",
+    "description": "Pautas de introducción y distribución de recursos.",
+    "duration": 60,
+    "price": 50000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-84",
+    "name": "Enriquecimiento ambiental felino",
+    "description": "Evaluación de ambiente y recomendaciones de juego y refugio.",
+    "duration": 45,
+    "price": 35000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-85",
+    "name": "Entrenamiento cooperativo felino",
+    "description": "Aprendizaje gradual de manipulación, transportadora y cuidados.",
+    "duration": 45,
+    "price": 35000,
+    "category": "educacion",
+    "available": true
+  },
+  {
+    "id": "service-86",
+    "name": "Asesoramiento de adopción canina",
+    "description": "Preparación del hogar y evaluación de necesidades.",
+    "duration": 45,
+    "price": 25000,
+    "category": "asesoramiento",
+    "available": true
+  },
+  {
+    "id": "service-87",
+    "name": "Asesoramiento de adopción felina",
+    "description": "Preparación de recursos y adaptación inicial.",
+    "duration": 45,
+    "price": 25000,
+    "category": "asesoramiento",
+    "available": true
+  },
+  {
+    "id": "service-88",
+    "name": "Asesoramiento de alimentación",
+    "description": "Orientación comercial no clínica sobre alimentos.",
+    "duration": 30,
+    "price": 15000,
+    "category": "asesoramiento",
+    "available": true
+  },
+  {
+    "id": "service-89",
+    "name": "Asesoramiento de accesorios",
+    "description": "Selección de arneses, camas y transportadoras.",
+    "duration": 20,
+    "price": 0,
+    "category": "asesoramiento",
+    "available": true
+  },
+  {
+    "id": "service-90",
+    "name": "Introducción al hogar de una mascota",
+    "description": "Organización de espacios, rutinas y cuidados.",
+    "duration": 60,
+    "price": 30000,
+    "category": "asesoramiento",
+    "available": true
+  },
+  {
+    "id": "service-91",
+    "name": "Preparación para viajes con mascotas",
+    "description": "Orientación general en transporte y documentación.",
+    "duration": 45,
+    "price": 25000,
+    "category": "asesoramiento",
+    "available": true
+  }
+]
