@@ -147,12 +147,14 @@ El método devuelve el servicio eliminado o `null` si no existe.
 
 - `src/config/env.config.js`: carga y valida las variables de entorno.
 - `src/managers/ServiceManager.js`: gestiona el catálogo de servicios.
+- `src/routes/services.router.js`: define las rutas HTTP del recurso `services`.
 - `src/data/services.json`: persistencia inicial del recurso `services`.
-- `src/app.js`: punto de entrada de la aplicación.
+- `src/app.js`: configura la aplicación Express y sus rutas.
+- `src/server.js`: inicia el servidor HTTP.
 Al ejecutar la aplicación, la API queda disponible en `http://localhost:8080` con estas rutas HTTP:
 
 - `GET /api/services`: lista y filtra servicios.
 - `GET /api/services/:id`: obtiene un servicio.
 - `POST /api/services`: agrega un servicio.
-- `PATCH /api/services/:id`: actualiza un servicio.
+- `PUT /api/services/:id`: actualiza un servicio.
 - `DELETE /api/services/:id`: elimina un servicio.

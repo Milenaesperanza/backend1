@@ -1,85 +1,39 @@
-import { createServer } from 'node:http';
-import { env } from './config/env.config.js';
+import express from 'express';
 import { ServiceManager } from './managers/ServiceManager.js';
+import { createServicesRouter } from './routes/services.router.js';
 
-const serviceManager = new ServiceManager();
+export const createApp = (serviceManager = new ServiceManager()) => {
+  const app = express();
 
-const sendJson = (response, statusCode, data) => {
-  response.writeHead(statusCode, {
-    'Content-Type': 'application/json; charset=utf-8',
-    'Access-Control-Allow-Origin': '*',
+  app.use((request, response, next) => {
+    response.set('Access-Control-Allow-Origin', '*');
+    next();
   });
-  response.end(JSON.stringify(data));
-};
 
-const readRequestBody = async (request) => {
-  let body = '';
+  app.use(express.json());
 
-  for await (const chunk of request) {
-    body += chunk;
-  }
+  app.use('/api/services', createServicesRouter(serviceManager));
 
-  return body ? JSON.parse(body) : {};
-};
+  app.use('/api/services', (request, response) => {
+    response.status(405).json({ error: 'Método no permitido.' });
+  });
 
-const server = createServer(async (request, response) => {
-  try {
-    const requestUrl = new URL(request.url, `http://${request.headers.host}`);
-
-    if (requestUrl.pathname === '/api/services') {
-      if (request.method === 'GET') {
-        const services = serviceManager.getServices({
-          category: requestUrl.searchParams.get('category') || undefined,
-          available: requestUrl.searchParams.has('available')
-            ? requestUrl.searchParams.get('available')
-            : undefined,
-          search: requestUrl.searchParams.get('search') || undefined,
-        });
-        sendJson(response, 200, services);
-        return;
-      }
-
-      if (request.method === 'POST') {
-        const service = serviceManager.addService(await readRequestBody(request));
-        sendJson(response, 201, service);
-        return;
-      }
+  app.use((error, request, response, next) => {
+    if (error instanceof SyntaxError && error.status === 400 && 'body' in error) {
+      response.status(400).json({ error: 'El cuerpo de la solicitud debe contener JSON válido.' });
+      return;
     }
 
-    const serviceMatch = requestUrl.pathname.match(/^\/api\/services\/([^/]+)$/);
-
-    if (serviceMatch) {
-      const id = decodeURIComponent(serviceMatch[1]);
-
-      if (request.method === 'GET') {
-        const service = serviceManager.getServiceById(id);
-        sendJson(response, service ? 200 : 404, service ?? { error: 'Servicio no encontrado.' });
-        return;
-      }
-
-      if (request.method === 'PATCH') {
-        const service = serviceManager.updateService(id, await readRequestBody(request));
-        sendJson(response, service ? 200 : 404, service ?? { error: 'Servicio no encontrado.' });
-        return;
-      }
-
-      if (request.method === 'DELETE') {
-        const service = serviceManager.deleteService(id);
-        sendJson(response, service ? 200 : 404, service ?? { error: 'Servicio no encontrado.' });
-        return;
-      }
+    if (response.headersSent) {
+      next(error);
+      return;
     }
 
-    sendJson(response, 405, { error: 'Método no permitido.' });
-  } catch (error) {
-    sendJson(response, 400, { error: error.message });
-  }
-});
+    response.status(400).json({ error: error.message });
+  });
 
-server.listen(env.port, () => {
-  console.log(`Manada Servicios iniciado en http://localhost:${env.port}`);
-  console.log(`Entorno: ${env.nodeEnv}`);
-  console.log(`Servicios cargados: ${serviceManager.getServices().length}`);
-});
+  return app;
+};
 
-export { serviceManager };
+export const serviceManager = new ServiceManager();
+export const app = createApp(serviceManager);
