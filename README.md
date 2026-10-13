@@ -1,6 +1,6 @@
 # Manada Servicios
 
-Aplicación Node.js con ESM para gestionar los servicios de Manada PetShop dentro de un sistema de turnos y reservas.
+API Node.js con Express y persistencia en archivos JSON para gestionar los servicios y reservas de Manada PetShop.
 
 ## Requisitos
 
@@ -9,13 +9,13 @@ Aplicación Node.js con ESM para gestionar los servicios de Manada PetShop dentr
 
 ## Instalación
 
-1. Instalar las dependencias:
+Instalar las dependencias:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-2. Crear el archivo `.env` a partir de `.env.example` y completar sus valores. El proyecto ya incluye un `.env` local para desarrollo.
+Configurar las variables de entorno a partir de `.env.example`. El proyecto incluye un `.env` local para desarrollo.
 
 ## Ejecución
 
@@ -31,13 +31,7 @@ Para ejecutarla en modo desarrollo, reiniciando Node.js cuando cambian los archi
 npm run dev
 ```
 
-Para ejecutar las pruebas del `ServiceManager`:
-
-```bash
-npm test
-```
-
-Las pruebas se ejecutan sobre archivos temporales para no modificar el catálogo real de `src/data/services.json`.
+La API queda disponible en `http://localhost:8080` o en el puerto definido en `PORT`.
 
 ## Variables de entorno
 
@@ -48,11 +42,11 @@ La aplicación requiere estas variables:
 | `PORT` | Puerto de ejecución de la aplicación | `8080` |
 | `NODE_ENV` | Entorno de ejecución | `development` |
 
-Si falta alguna variable o `PORT` no es un número válido entre 1 y 65535, la aplicación se detiene con un mensaje claro.
+`PORT` debe ser un número entero entre 1 y 65535.
 
 ## Recurso `services`
 
-El catálogo se persiste en `src/data/services.json`. Actualmente contiene los 91 servicios de la hoja `Servicios` del archivo `manada_catalogo_servicios.xlsx`. Cada servicio tiene esta estructura:
+El catálogo se persiste en `src/data/services.json`. Cada servicio tiene esta estructura:
 
 ```json
 {
@@ -61,100 +55,87 @@ El catálogo se persiste en `src/data/services.json`. Actualmente contiene los 9
   "description": "Servicio de higiene para mascotas",
   "duration": 60,
   "price": 15000,
-  "category": "Higiene",
+  "category": "peluqueria",
   "available": true
 }
 ```
 
-- `id`: identificador único generado automáticamente.
-- `name`: nombre del servicio.
-- `description`: descripción del servicio.
-- `duration`: duración en minutos.
-- `price`: precio del servicio.
-- `category`: categoría del servicio.
-- `available`: indica si el servicio está disponible para reservar.
+El `id` se genera automáticamente. Los campos `name`, `description`, `duration`, `price`, `category` y `available` son obligatorios al crear o actualizar un servicio.
 
-La importación utiliza las columnas `ID`, `Servicio`, `Descripción`, `Duración (min)`, `Precio (ARS)`, `Categoría` y `Disponible`. Los IDs numéricos del Excel se normalizan al formato `service-1`, `service-2`, etc. Las hojas `Profesionales` y `Categorías` quedan disponibles para futuros recursos de la API.
+### Rutas de services
 
-## Uso de `ServiceManager`
+- `GET /api/services`: devuelve todos los servicios.
+- `GET /api/services/:sid`: devuelve un servicio por id.
+- `POST /api/services`: crea un servicio sin recibir el id en el body.
+- `PUT /api/services/:sid`: actualiza un servicio sin modificar su id.
+- `DELETE /api/services/:sid`: elimina un servicio.
+
+El listado acepta filtros opcionales:
+
+```text
+GET /api/services?category=peluqueria&available=true&search=baño
+```
+
+### Uso de `ServiceManager`
 
 ```js
 import { ServiceManager } from './src/managers/ServiceManager.js';
 
 const serviceManager = new ServiceManager();
-```
-
-### Obtener todos los servicios
-
-```js
 const services = serviceManager.getServices();
-```
-
-También permite filtrar por categoría, disponibilidad o texto de búsqueda:
-
-```js
-const availableHygieneServices = serviceManager.getServices({
-  category: 'Higiene',
-  available: true,
-  search: 'baño'
-});
-```
-
-### Obtener un servicio por ID
-
-```js
 const service = serviceManager.getServiceById('service-1');
-// Devuelve el servicio o null si no existe.
 ```
 
-### Agregar un servicio
+## Recurso `bookings`
 
-El `id` no se envía: se genera automáticamente. Son obligatorios `name`, `description`, `duration`, `price`, `category` y `available`.
+Las reservas se persisten en `src/data/bookings.json`. Cada reserva tiene esta estructura:
 
-```js
-const newService = serviceManager.addService({
-  name: 'Baño y corte',
-  description: 'Servicio de higiene para mascotas',
-  duration: 60,
-  price: 15000,
-  category: 'Higiene',
-  available: true
-});
+```json
+{
+  "id": "booking-1",
+  "clientName": "Ana Pérez",
+  "clientEmail": "ana@example.com",
+  "date": "2026-10-14",
+  "time": "10:00",
+  "status": "pending",
+  "services": [
+    {
+      "service": "service-1",
+      "quantity": 1
+    }
+  ]
+}
 ```
 
-Si faltan datos obligatorios o se envía un `id`, el método devuelve un error.
+El `id` se genera automáticamente. Una reserva puede comenzar con `services` vacío. Los servicios agregados deben existir en el catálogo. Si se agrega dos veces el mismo servicio, se incrementa su `quantity`.
 
-### Actualizar un servicio
+### Rutas de bookings
 
-```js
-const updatedService = serviceManager.updateService('service-1', {
-  price: 18000,
-  available: false
-});
+- `POST /api/bookings`: crea una reserva.
+- `GET /api/bookings/:bid`: devuelve una reserva por id.
+- `POST /api/bookings/:bid/services/:sid`: agrega un servicio existente a una reserva existente.
+
+Ejemplo para crear una reserva:
+
+```json
+{
+  "clientName": "Ana Pérez",
+  "clientEmail": "ana@example.com",
+  "date": "2026-10-14",
+  "time": "10:00",
+  "status": "pending",
+  "services": []
+}
 ```
-
-El `id` se conserva y no se puede modificar. El método devuelve `null` si el servicio no existe.
-
-### Eliminar un servicio
-
-```js
-const deletedService = serviceManager.deleteService('service-1');
-```
-
-El método devuelve el servicio eliminado o `null` si no existe.
 
 ## Arquitectura
 
 - `src/config/env.config.js`: carga y valida las variables de entorno.
-- `src/managers/ServiceManager.js`: gestiona el catálogo de servicios.
-- `src/routes/services.router.js`: define las rutas HTTP del recurso `services`.
-- `src/data/services.json`: persistencia inicial del recurso `services`.
-- `src/app.js`: configura la aplicación Express y sus rutas.
+- `src/managers/ServiceManager.js`: gestiona `services.json`.
+- `src/managers/BookingManager.js`: gestiona `bookings.json` y la relación con servicios.
+- `src/routes/services.router.js`: define las rutas HTTP de `services`.
+- `src/routes/bookings.router.js`: define las rutas HTTP de `bookings`.
+- `src/data/services.json`: persistencia inicial de servicios.
+- `src/data/bookings.json`: persistencia de reservas.
+- `src/app.js`: configura Express y monta las rutas.
 - `src/server.js`: inicia el servidor HTTP.
-Al ejecutar la aplicación, la API queda disponible en `http://localhost:8080` con estas rutas HTTP:
-
-- `GET /api/services`: lista y filtra servicios.
-- `GET /api/services/:id`: obtiene un servicio.
-- `POST /api/services`: agrega un servicio.
-- `PUT /api/services/:id`: actualiza un servicio.
-- `DELETE /api/services/:id`: elimina un servicio.

@@ -1,8 +1,13 @@
 import express from 'express';
 import { ServiceManager } from './managers/ServiceManager.js';
+import { BookingManager } from './managers/BookingManager.js';
 import { createServicesRouter } from './routes/services.router.js';
+import { createBookingsRouter } from './routes/bookings.router.js';
 
-export const createApp = (serviceManager = new ServiceManager()) => {
+export const createApp = (
+  serviceManager = new ServiceManager(),
+  bookingManager = new BookingManager(undefined, serviceManager)
+) => {
   const app = express();
 
   app.use((request, response, next) => {
@@ -13,6 +18,7 @@ export const createApp = (serviceManager = new ServiceManager()) => {
   app.use(express.json());
 
   app.use('/api/services', createServicesRouter(serviceManager));
+  app.use('/api/bookings', createBookingsRouter(bookingManager));
 
   app.use('/api/services', (request, response) => {
     response.status(405).json({ error: 'Método no permitido.' });
@@ -36,4 +42,5 @@ export const createApp = (serviceManager = new ServiceManager()) => {
 };
 
 export const serviceManager = new ServiceManager();
-export const app = createApp(serviceManager);
+export const bookingManager = new BookingManager(undefined, serviceManager);
+export const app = createApp(serviceManager, bookingManager);
